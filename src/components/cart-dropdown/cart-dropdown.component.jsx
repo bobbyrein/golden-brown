@@ -6,9 +6,9 @@ import CartItem from '../cart-item/cart-item.component';
 import { selectCartItems } from '../../store/cart/cart.selector';
 
 import {
-    CartDropDownContainer,
+    CartDropdownContainer,
     EmptyMessage,
-    CartItems
+    CartItems,
 } from './cart-dropdown.styles';
 
 const CartDropdown = () => {
@@ -17,21 +17,20 @@ const CartDropdown = () => {
 
     const goToCheckoutHandler = () => {
         navigate('/checkout');
-    }
+    };
 
     return (
-        <CartDropDownContainer>
+        <CartDropdownContainer>
             <CartItems>
-                {cartItems.length ?
-                    (cartItems.map((item) => (
-                        <CartItem key={item.id} cartItem={item} />
-                    ))) : (
-                        <EmptyMessage>Your cart is empty</EmptyMessage>
-                    )}
+                {cartItems.length ? (
+                    cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+                ) : (
+                    <EmptyMessage>Your cart is empty</EmptyMessage>
+                )}
             </CartItems>
             <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
-        </CartDropDownContainer>
+        </CartDropdownContainer>
     );
 };
 
-export default CartDropdown; 
+export default CartDropdown;
