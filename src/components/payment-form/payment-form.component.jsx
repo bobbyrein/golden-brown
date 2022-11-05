@@ -10,6 +10,8 @@ import { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import { PaymentButton, PaymentFormContainer } from './payment-form.styles';
 
+import Button from '../button/button.component';
+
 const PaymentForm = () => {
     const stripe = useStripe();
     const elements = useElements();
@@ -23,23 +25,22 @@ const PaymentForm = () => {
             return;
         }
         setIsProcessingPayment(true);
+
         const response = await fetch('/.netlify/functions/create-payment-intent', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ amount: amount * 100 }),
-        }).then((res) => {
-            return res.json();
-        });
+            body: JSON.stringify({ amount: 10000 }),
+        }).then((res) => res.json());
 
-        const clientSecret = response.paymentIntent.client_secret;
+        const { paymentIntent: { client_secret } } = response;
 
-        const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+        const paymentResult = await stripe.confirmCardPayment(client_secret, {
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
-                    name: currentUser ? currentUser.displayName : 'Yihua Zhang',
+                    name: currentUser ? currentUser.displayName : 'Guest',
                 },
             },
         });
@@ -70,4 +71,5 @@ const PaymentForm = () => {
         </PaymentFormContainer>
     );
 };
+
 export default PaymentForm;

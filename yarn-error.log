@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/bobbyrein/.nvm/versions/node/v19.0.0/bin/node /Users/bobbyrein/.nvm/versions/node/v19.0.0/bin/yarn add root-saga
+  /Users/bobbyrein/.nvm/versions/node/v19.0.0/bin/node /Users/bobbyrein/.nvm/versions/node/v19.0.0/bin/yarn add @stripe
 
 PATH: 
   /Users/bobbyrein/.nvm/versions/node/v19.0.0/bin:/Users/bobbyrein/.yarn/bin:/Users/bobbyrein/.config/yarn/global/node_modules/.bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,8 +14,8 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/root-saga: Not found
-      at params.callback [as _callback] (/Users/bobbyrein/.nvm/versions/node/v19.0.0/lib/node_modules/yarn/lib/cli.js:66145:18)
+  Error: https://registry.yarnpkg.com/@stripe: Request "https://registry.yarnpkg.com/@stripe" returned a 405
+      at params.callback [as _callback] (/Users/bobbyrein/.nvm/versions/node/v19.0.0/lib/node_modules/yarn/lib/cli.js:66154:18)
       at self.callback (/Users/bobbyrein/.nvm/versions/node/v19.0.0/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:513:28)
       at Request.<anonymous> (/Users/bobbyrein/.nvm/versions/node/v19.0.0/lib/node_modules/yarn/lib/cli.js:141862:10)
